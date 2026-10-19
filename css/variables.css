@@ -1,0 +1,140 @@
+/* ============================================================
+   HIRANYA — Design Tokens
+   Source of truth: DESIGN.md (Hiranya Aura)
+   These custom properties replace the Tailwind config that shipped
+   with the Google Stitch export. Every color/spacing/type value
+   below is translated 1:1 from DESIGN.md so the visual system is
+   preserved exactly.
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces ---- */
+  --hiranya-surface: #fcf9f8;
+  --hiranya-surface-dim: #dcd9d9;
+  --hiranya-surface-bright: #fcf9f8;
+  --hiranya-surface-container-lowest: #ffffff;
+  --hiranya-surface-container-low: #f6f3f2;
+  --hiranya-surface-container: #f0edec;
+  --hiranya-surface-container-high: #ebe7e7;
+  --hiranya-surface-container-highest: #e5e2e1;
+  --hiranya-surface-variant: #e5e2e1;
+
+  /* ---- Ink / Foreground ---- */
+  --hiranya-on-surface: #1c1b1b;
+  --hiranya-on-surface-variant: #444844;
+  --hiranya-inverse-surface: #313030;
+  --hiranya-inverse-on-surface: #f3f0ef;
+  --hiranya-black: #111111;
+
+  /* ---- Outline ---- */
+  --hiranya-outline: #757874;
+  --hiranya-outline-variant: #c5c7c2;
+  --hiranya-silver: #bfc3c8;
+
+  /* ---- Primary (neutral graphite) ---- */
+  --hiranya-primary: #5e5f5c;
+  --hiranya-on-primary: #ffffff;
+  --hiranya-primary-container: #f8f7f4;
+  --hiranya-on-primary-container: #71716f;
+  --hiranya-inverse-primary: #c7c6c4;
+  --hiranya-primary-fixed: #e3e2df;
+  --hiranya-primary-fixed-dim: #c7c6c4;
+
+  /* ---- Secondary (royal blue) ---- */
+  --hiranya-secondary: #485d90;
+  --hiranya-on-secondary: #ffffff;
+  --hiranya-secondary-container: #b0c6ff;
+  --hiranya-on-secondary-container: #3c5183;
+  --hiranya-royal-blue: #142c5c;
+  --hiranya-navy: #0c1833;
+
+  /* ---- Tertiary (gold) ---- */
+  --hiranya-tertiary: #755b00;
+  --hiranya-on-tertiary: #ffffff;
+  --hiranya-tertiary-container: #fff6e8;
+  --hiranya-on-tertiary-container: #8b6d00;
+  --hiranya-tertiary-fixed: #ffe08e;
+  --hiranya-tertiary-fixed-dim: #ecc246;
+  --hiranya-on-tertiary-fixed-variant: #584400;
+  --hiranya-gold: #c9a227;
+  --hiranya-champagne-gold: #d8c08a;
+
+  /* ---- Error ---- */
+  --hiranya-error: #ba1a1a;
+  --hiranya-on-error: #ffffff;
+  --hiranya-error-container: #ffdad6;
+  --hiranya-on-error-container: #93000a;
+
+  /* ---- Background ---- */
+  --hiranya-background: #fcf9f8;
+  --hiranya-on-background: #1c1b1b;
+
+  /* ---- Typography ---- */
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, sans-serif;
+
+  --fs-display-lg: 64px;
+  --lh-display-lg: 72px;
+  --ls-display-lg: 0.04em;
+
+  --fs-display-md: 48px;
+  --lh-display-md: 56px;
+  --ls-display-md: 0.03em;
+
+  --fs-headline-lg: 32px;
+  --lh-headline-lg: 40px;
+  --ls-headline-lg: 0.02em;
+
+  --fs-headline-lg-mobile: 28px;
+  --lh-headline-lg-mobile: 36px;
+  --ls-headline-lg-mobile: 0.02em;
+
+  --fs-title-md: 20px;
+  --lh-title-md: 28px;
+  --ls-title-md: 0.01em;
+
+  --fs-body-lg: 18px;
+  --lh-body-lg: 28px;
+
+  --fs-body-md: 16px;
+  --lh-body-md: 24px;
+
+  --fs-label-caps: 12px;
+  --lh-label-caps: 16px;
+  --ls-label-caps: 0.15em;
+
+  /* ---- Radius ---- */
+  --radius-sm: 0.125rem;
+  --radius-default: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* ---- Spacing / Grid ---- */
+  --container-max: 1440px;
+  --edge-margin-desktop: 80px;
+  --edge-margin-tablet: 40px;
+  --edge-margin-mobile: 24px;
+  --gutter: 24px;
+  --section-stack: 120px;
+  --element-gap: 16px;
+
+  /* ---- Elevation ---- */
+  --whisper-shadow: 0px 20px 40px rgba(17, 17, 17, 0.03);
+
+  /* ---- Motion ---- */
+  --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+  --dur-slow: 400ms;
+  --dur-slower: 500ms;
+  --dur-slowest: 700ms;
+
+  /* Bootstrap overrides so BS components inherit the HIRANYA palette */
+  --bs-body-font-family: var(--font-body);
+  --bs-body-color: var(--hiranya-on-background);
+  --bs-body-bg: var(--hiranya-background);
+  --bs-link-color: var(--hiranya-primary);
+  --bs-border-color: var(--hiranya-outline-variant);
+}

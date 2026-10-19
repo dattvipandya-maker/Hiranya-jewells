@@ -1,0 +1,105 @@
+/* ============================================================
+   HIRANYA — Typography
+   EB Garamond = editorial / display
+   Manrope     = UI / body
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+  color: var(--hiranya-on-background);
+  background-color: var(--hiranya-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--hiranya-primary);
+  margin: 0;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-headline-lg-mobile);
+  line-height: var(--lh-headline-lg-mobile);
+  letter-spacing: var(--ls-headline-lg-mobile);
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .display-lg {
+    font-size: var(--fs-display-lg);
+    line-height: var(--lh-display-lg);
+    letter-spacing: var(--ls-display-lg);
+  }
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .display-md {
+    font-size: var(--fs-display-md);
+    line-height: var(--lh-display-md);
+    letter-spacing: var(--ls-display-md);
+  }
+}
+
+.headline-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-headline-lg-mobile);
+  line-height: var(--lh-headline-lg-mobile);
+  letter-spacing: var(--ls-headline-lg-mobile);
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .headline-lg {
+    font-size: var(--fs-headline-lg);
+    line-height: var(--lh-headline-lg);
+    letter-spacing: var(--ls-headline-lg);
+  }
+}
+
+.title-md {
+  font-family: var(--font-body);
+  font-size: var(--fs-title-md);
+  line-height: var(--lh-title-md);
+  letter-spacing: var(--ls-title-md);
+  font-weight: 600;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body-lg);
+  font-weight: 400;
+}
+
+.body-md {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+  font-weight: 400;
+}
+
+.label-caps {
+  font-family: var(--font-body);
+  font-size: var(--fs-label-caps);
+  line-height: var(--lh-label-caps);
+  letter-spacing: var(--ls-label-caps);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.text-primary-brand   { color: var(--hiranya-primary) !important; }
+.text-on-surface-var  { color: var(--hiranya-on-surface-variant) !important; }
+.text-gold            { color: var(--hiranya-gold) !important; }
+.text-champagne       { color: var(--hiranya-champagne-gold) !important; }
+.text-royal           { color: var(--hiranya-royal-blue) !important; }

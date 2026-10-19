@@ -1,0 +1,35 @@
+/* ============================================================
+   HIRANYA — Cart page & drawer
+   ============================================================ */
+
+#cartOffcanvas {
+  width: 420px;
+  max-width: 92vw;
+  background-color: var(--hiranya-surface);
+}
+#cartOffcanvas .offcanvas-header {
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+}
+#cartOffcanvas .offcanvas-title {
+  font-family: var(--font-display);
+  color: var(--hiranya-primary);
+  font-size: 24px;
+}
+
+.cart-summary-card {
+  background-color: var(--hiranya-surface-container-low);
+  padding: 32px;
+  border: 1px solid var(--hiranya-outline-variant);
+}
+.cart-summary-card .row-line {
+  display: flex; justify-content: space-between;
+  margin-bottom: 12px;
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+}
+.cart-summary-card .row-total {
+  border-top: 1px solid var(--hiranya-outline-variant);
+  margin-top: 16px; padding-top: 16px;
+  font-weight: 700; color: var(--hiranya-on-background);
+  font-size: 18px;
+}

@@ -1,0 +1,61 @@
+/* ============================================================
+   HIRANYA — Global Stylesheet
+   Load order matters: tokens -> type -> components -> nav/footer
+   -> responsive. Page-specific CSS (home.css, shop.css, etc.) is
+   linked separately in each page's <head>, after this file.
+   ============================================================ */
+@import url('variables.css');
+@import url('typography.css');
+@import url('components.css');
+@import url('navbar.css');
+@import url('footer.css');
+@import url('responsive.css');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1 0 auto; }
+
+img { max-width: 100%; display: block; }
+
+a { transition: color var(--dur-base) var(--ease-luxury); }
+
+::selection {
+  background-color: var(--hiranya-tertiary-fixed-dim);
+  color: var(--hiranya-on-tertiary-fixed-variant);
+}
+
+/* Visible keyboard focus everywhere (accessibility floor) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--hiranya-royal-blue);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+.page-loader-hidden { display: none !important; }

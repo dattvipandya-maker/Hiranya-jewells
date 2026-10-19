@@ -1,0 +1,31 @@
+/* ============================================================
+   HIRANYA — Contact page
+   ============================================================ */
+
+.store-card {
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 28px;
+  height: 100%;
+  transition: border-color var(--dur-base) var(--ease-luxury);
+}
+.store-card:hover { border-color: var(--hiranya-tertiary-fixed-dim); }
+.store-card h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.store-card p {
+  color: var(--hiranya-on-surface-variant);
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.store-card p:last-of-type { margin-bottom: 0; }
+.store-card .material-symbols-outlined {
+  color: var(--hiranya-gold);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+#contactForm textarea.input-underline { resize: vertical; }

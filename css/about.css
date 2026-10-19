@@ -1,0 +1,17 @@
+/* ============================================================
+   HIRANYA — About page
+   ============================================================ */
+
+.craft-step {
+  padding: 32px;
+  border: 1px solid var(--hiranya-outline-variant);
+  height: 100%;
+}
+
+.craft-number {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--hiranya-tertiary-fixed-dim);
+  display: block;
+  margin-bottom: 16px;
+}

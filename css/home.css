@@ -1,0 +1,117 @@
+/* ============================================================
+   HIRANYA — Home page
+   ============================================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 68vh;
+  min-height: 460px;
+  max-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.hero-scrim {
+  position: absolute; inset: 0;
+  /* Editorial, asymmetrical scrim: ivory wash from the left (where the
+     copy sits) fading out toward the right so the photograph stays legible —
+     matches DESIGN.md's "editorial composition / asymmetrical balance". */
+  background:
+    linear-gradient(to right, rgba(252,249,248,0.92) 0%, rgba(252,249,248,0.62) 42%, rgba(252,249,248,0.08) 72%),
+    linear-gradient(to top, rgba(229,226,225,0.35), transparent 55%);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  text-align: left;
+  max-width: 560px;
+  padding: 0 var(--edge-margin-mobile);
+}
+@media (min-width: 992px) {
+  .hero-content { padding: 0 0 0 var(--edge-margin-desktop); }
+}
+@media (max-width: 767.98px) {
+  .hero { height: 56vh; min-height: 420px; }
+  .hero-content { max-width: 440px; }
+}
+
+/* ---------- Hero entrance animation ----------
+   A single, orchestrated reveal (not scattered per-element effects):
+   headline, then subhead, then CTA, each rising and fading in with a
+   short stagger. Respects prefers-reduced-motion via the global rule
+   in style.css, which collapses these to an instant, static state. */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-anim {
+  opacity: 0;
+  animation: heroReveal 900ms var(--ease-luxury) forwards;
+}
+.hero-anim-1 { animation-delay: 150ms; }
+.hero-anim-2 { animation-delay: 380ms; }
+.hero-anim-3 { animation-delay: 620ms; }
+.hero-content h1 { text-shadow: 0 1px 12px rgba(255,255,255,0.35); }
+
+.trust-bar {
+  background-color: var(--hiranya-surface-container-low);
+  border-bottom: 1px solid rgba(197,199,194,0.3);
+  padding: 32px 0;
+}
+.trust-bar .trust-item { display: flex; align-items: center; gap: 16px; }
+.trust-bar .trust-divider { width: 1px; height: 48px; background: rgba(197,199,194,0.5); }
+
+.category-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--hiranya-surface-container-low);
+  border: 1px solid rgba(197,199,194,0.3);
+  text-decoration: none;
+}
+.category-tile img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-slowest) ease-in-out;
+}
+.category-tile:hover img { transform: scale(1.05); }
+.category-tile .tile-scrim {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.1);
+  transition: background var(--dur-slower) var(--ease-luxury);
+}
+.category-tile:hover .tile-scrim { background: rgba(0,0,0,0.22); }
+.category-tile .tile-label {
+  position: absolute; left: 0; bottom: 32px; width: 100%;
+  text-align: center; color: #fff;
+}
+.category-tile .tile-label h3 {
+  color: #fff; font-size: 30px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.category-tile .tile-cta {
+  color: #fff; opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-luxury);
+  letter-spacing: 0.2em;
+}
+.category-tile:hover .tile-cta { opacity: 1; }
+
+.featured-rail {
+  display: flex;
+  gap: var(--gutter);
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x proximity;
+}
+.featured-rail > * {
+  flex: 0 0 auto;
+  width: 260px;
+  scroll-snap-align: start;
+}
+@media (min-width: 768px) { .featured-rail > * { width: 300px; } }

@@ -1,0 +1,69 @@
+/* ============================================================
+   HIRANYA — Footer
+   ============================================================ */
+
+.hiranya-footer {
+  background-color: var(--hiranya-surface-container-low);
+  border-top: 1px solid var(--hiranya-outline-variant);
+}
+.hiranya-footer .footer-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 80px var(--edge-margin-mobile);
+}
+@media (min-width: 992px) {
+  .hiranya-footer .footer-inner { padding: var(--section-stack) var(--edge-margin-desktop); }
+}
+.hiranya-footer .footer-brand {
+  font-family: var(--font-display);
+  letter-spacing: 0.2em;
+  color: var(--hiranya-primary);
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+.hiranya-footer h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-title-md);
+  color: var(--hiranya-on-background);
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+.hiranya-footer ul { list-style: none; padding: 0; margin: 0; }
+.hiranya-footer ul li { margin-bottom: 14px; }
+.hiranya-footer a {
+  color: var(--hiranya-on-surface-variant);
+  text-decoration: none;
+  font-size: var(--fs-body-md);
+  display: inline-block;
+  transition: transform var(--dur-slower) var(--ease-luxury), color var(--dur-slower) var(--ease-luxury);
+}
+.hiranya-footer a:hover { color: var(--hiranya-primary); transform: translateX(4px); }
+.hiranya-footer .newsletter-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  padding: 10px 2px;
+  width: 100%;
+  color: var(--hiranya-on-background);
+  font-family: var(--font-body);
+}
+.hiranya-footer .newsletter-form input:focus { outline: none; border-color: var(--hiranya-champagne-gold); }
+.hiranya-footer .newsletter-form button {
+  background: none; border: none;
+  border-bottom: 1px solid var(--hiranya-on-background);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: var(--fs-label-caps);
+  font-weight: 700;
+  padding-bottom: 4px;
+  color: var(--hiranya-on-background);
+  align-self: flex-start;
+}
+.hiranya-footer .newsletter-form button:hover { color: var(--hiranya-champagne-gold); border-color: var(--hiranya-champagne-gold); }
+.hiranya-footer .footer-bottom {
+  border-top: 1px solid rgba(197,199,194,0.3);
+  padding: 24px var(--edge-margin-mobile);
+  text-align: center;
+  color: var(--hiranya-on-surface-variant);
+  font-size: 14px;
+}

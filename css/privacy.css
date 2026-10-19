@@ -1,0 +1,36 @@
+/* ============================================================
+   HIRANYA — Privacy page
+   ============================================================ */
+
+.legal-body h2 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--hiranya-on-background);
+  margin: 40px 0 14px;
+}
+.legal-body h2:first-of-type { margin-top: 0; }
+.legal-body p,
+.legal-body li {
+  color: var(--hiranya-on-surface-variant);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.legal-body ul { padding-left: 20px; }
+.legal-body li { margin-bottom: 8px; }
+.legal-body code {
+  background: var(--hiranya-surface-container-low);
+  padding: 2px 6px;
+  font-size: 13px;
+  color: var(--hiranya-primary);
+}
+
+.legal-notice {
+  background: var(--hiranya-surface-container-low);
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 22px 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--hiranya-on-surface-variant);
+  margin-bottom: 44px;
+}

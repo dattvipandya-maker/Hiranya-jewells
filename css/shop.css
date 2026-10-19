@@ -1,0 +1,36 @@
+/* ============================================================
+   HIRANYA — Shop page
+   ============================================================ */
+
+.filters-sidebar h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-title-md);
+  color: var(--hiranya-primary);
+  font-weight: 600;
+}
+.filters-sidebar .form-check-input {
+  border-color: var(--hiranya-outline);
+  border-radius: var(--radius-sm);
+}
+.filters-sidebar .form-check-input:checked {
+  background-color: var(--hiranya-primary);
+  border-color: var(--hiranya-primary);
+}
+.filters-sidebar .form-check-label {
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+}
+
+.sort-select {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  border-radius: 0;
+  color: var(--hiranya-primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 8px 28px 8px 4px;
+}
+.sort-select:focus { box-shadow: none; border-color: var(--hiranya-tertiary-fixed-dim); }
+
+#shopEmpty { display: block; }

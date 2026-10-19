@@ -1,0 +1,25 @@
+/* ============================================================
+   HIRANYA — Responsive refinements
+   Bootstrap's grid handles column reflow. This file only
+   contains HIRANYA-specific spacing/type adjustments per
+   breakpoint (mobile 375-576 / tablet 768 / desktop 992-1440+).
+   ============================================================ */
+
+@media (max-width: 575.98px) {
+  .section { padding-top: 56px; padding-bottom: 56px; }
+  .hiranya-nav { padding: 16px var(--edge-margin-mobile); }
+  .btn-hiranya-royal,
+  .btn-hiranya-primary,
+  .btn-hiranya-outline { padding: 14px 24px; font-size: 14px; }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .container-hiranya { padding-inline: var(--edge-margin-tablet); }
+}
+
+@media (min-width: 1440px) {
+  .container-hiranya { padding-inline: var(--edge-margin-desktop); }
+}
+
+/* Prevent any accidental horizontal overflow site-wide */
+html, body { overflow-x: hidden; }

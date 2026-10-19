@@ -1,0 +1,33 @@
+/* ============================================================
+   HIRANYA — Jewellery Care page
+   (also links css/lookbook.css for the shared .lookbook-block
+   editorial row used in the "Storage" section)
+   ============================================================ */
+
+.care-card {
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 32px 28px;
+  height: 100%;
+  transition: border-color var(--dur-base) var(--ease-luxury);
+}
+.care-card:hover { border-color: var(--hiranya-tertiary-fixed-dim); }
+.care-card h3 {
+  font-size: 19px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.care-card h3 .material-symbols-outlined {
+  color: var(--hiranya-gold);
+  font-size: 24px;
+}
+.care-card ul {
+  padding-left: 18px;
+  color: var(--hiranya-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.care-card li { margin-bottom: 10px; }
+.care-card li:last-child { margin-bottom: 0; }

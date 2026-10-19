@@ -1,0 +1,85 @@
+/* ============================================================
+   HIRANYA — Product details page
+   ============================================================ */
+
+.gallery-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .gallery-wrap { flex-direction: row; height: 85vh; }
+}
+
+.thumbnail-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+@media (min-width: 768px) {
+  .thumbnail-strip {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: visible;
+    width: 96px;
+    flex-shrink: 0;
+  }
+}
+.thumb-btn {
+  border: 1px solid transparent;
+  padding: 0;
+  background: none;
+  flex-shrink: 0;
+  width: 80px; height: 96px;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: opacity var(--dur-base) var(--ease-luxury), border-color var(--dur-base) var(--ease-luxury);
+}
+@media (min-width: 768px) { .thumb-btn { width: 100%; height: 128px; } }
+.thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
+.thumb-btn.active, .thumb-btn:hover { opacity: 1; border-color: var(--hiranya-tertiary-fixed-dim); }
+
+.main-image-frame {
+  position: relative;
+  flex-grow: 1;
+  background-color: var(--hiranya-surface-container-low);
+  overflow: hidden;
+  height: 50vh;
+}
+@media (min-width: 768px) { .main-image-frame { height: 100%; } }
+.main-image-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.size-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: 1px solid var(--hiranya-outline-variant);
+  background: transparent;
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+  transition: all var(--dur-base) var(--ease-luxury);
+}
+.size-btn.active {
+  border: 1px solid var(--hiranya-tertiary-fixed-dim);
+  background-color: var(--hiranya-primary-container);
+  color: var(--hiranya-primary);
+}
+
+.trust-indicator {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  text-align: center; flex: 1;
+}
+.trust-indicator .material-symbols-outlined { color: var(--hiranya-outline); }
+.trust-indicator span.label-caps { font-size: 10px; color: var(--hiranya-on-surface-variant); }
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--hiranya-outline-variant);
+}
+.qty-stepper button {
+  background: none; border: none;
+  width: 40px; height: 40px;
+  color: var(--hiranya-on-background);
+}
+.qty-stepper span { width: 32px; text-align: center; }

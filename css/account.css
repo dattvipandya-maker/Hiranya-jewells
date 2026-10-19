@@ -1,0 +1,103 @@
+/* ============================================================
+   HIRANYA — Account page
+   ============================================================ */
+
+/* ---------- Sign in / Register ---------- */
+.auth-card {
+  max-width: 460px;
+  margin: 0 auto;
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 48px 40px;
+}
+@media (max-width: 575.98px) { .auth-card { padding: 36px 24px; } }
+
+.auth-toggle {
+  display: flex;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  margin-bottom: 32px;
+}
+.auth-toggle button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--hiranya-on-surface-variant);
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur-base) var(--ease-luxury), border-color var(--dur-base) var(--ease-luxury);
+}
+.auth-toggle button.active { color: var(--hiranya-primary); border-bottom-color: var(--hiranya-tertiary-fixed-dim); }
+
+.demo-auth-note {
+  background: var(--hiranya-surface-container-low);
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--hiranya-on-surface-variant);
+  margin-bottom: 28px;
+}
+
+/* ---------- Dashboard tabs ---------- */
+.account-tabs {
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  margin-bottom: 40px;
+}
+.account-tabs .nav-link {
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 20px 14px;
+}
+.account-tabs .nav-link:first-child { padding-left: 0; }
+.account-tabs .nav-link.active {
+  color: var(--hiranya-primary);
+  background: none;
+  border-bottom-color: var(--hiranya-tertiary-fixed-dim);
+}
+
+/* ---------- Orders ---------- */
+.order-card { border: 1px solid var(--hiranya-outline-variant); padding: 24px; }
+.order-status-badge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: var(--hiranya-primary-container);
+  color: var(--hiranya-primary);
+  white-space: nowrap;
+  height: fit-content;
+}
+.order-timeline { display: flex; gap: 4px; }
+.timeline-step { flex: 1; text-align: center; opacity: 0.4; position: relative; }
+.timeline-step .dot {
+  display: block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--hiranya-outline-variant);
+  margin: 0 auto 6px;
+}
+.timeline-step.done { opacity: 1; }
+.timeline-step.done .dot { background: var(--hiranya-tertiary-fixed-dim); }
+.timeline-step .label-caps { font-size: 9px; }
+
+/* ---------- Address form ---------- */
+.address-form-grid { max-width: 560px; }
+
+/* ---------- Settings ---------- */
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+}
+.settings-row:last-child { border-bottom: none; }

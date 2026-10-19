@@ -1,0 +1,265 @@
+/* ============================================================
+   HIRANYA — Component Layer
+   Bootstrap provides structure (grid, buttons, forms, offcanvas,
+   modal). This file restyles those primitives to match the
+   Stitch/DESIGN.md visual system instead of default Bootstrap.
+   ============================================================ */
+
+/* ---------- Utility surfaces ---------- */
+.whisper-shadow { box-shadow: var(--whisper-shadow); }
+.hairline        { border: 1px solid var(--hiranya-outline-variant); }
+.hairline-gold   { border: 1px solid var(--hiranya-tertiary-fixed-dim); }
+.bg-ivory        { background-color: var(--hiranya-surface); }
+.bg-container-low{ background-color: var(--hiranya-surface-container-low); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+  transition: all var(--dur-slower) var(--ease-luxury);
+}
+
+.btn-hiranya-primary {
+  background-color: var(--hiranya-on-background);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 14px 32px;
+  font-size: var(--fs-title-md);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.btn-hiranya-primary:hover {
+  background-color: var(--hiranya-inverse-surface);
+  color: #fff;
+}
+
+.btn-hiranya-royal {
+  background-color: var(--hiranya-royal-blue);
+  color: #fff;
+  border: 1px solid var(--hiranya-champagne-gold);
+  padding: 16px 40px;
+  font-size: var(--fs-label-caps);
+  letter-spacing: var(--ls-label-caps);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.btn-hiranya-royal:hover {
+  background-color: var(--hiranya-surface);
+  color: var(--hiranya-royal-blue);
+}
+
+.btn-hiranya-outline {
+  background-color: transparent;
+  color: var(--hiranya-on-background);
+  border: 1px solid var(--hiranya-outline-variant);
+  padding: 14px 32px;
+  font-size: var(--fs-title-md);
+  font-weight: 600;
+}
+.btn-hiranya-outline:hover {
+  background-color: var(--hiranya-surface-container-low);
+  box-shadow: inset 0 0 0 1px var(--hiranya-tertiary-fixed-dim);
+  color: var(--hiranya-on-tertiary-fixed-variant);
+}
+
+.btn-hiranya-ghost {
+  background: transparent;
+  border: none;
+  color: var(--hiranya-on-surface-variant);
+  padding: 0;
+}
+.btn-hiranya-ghost:hover { color: var(--hiranya-primary); }
+
+/* ---------- Nav underline ---------- */
+.nav-underline {
+  position: relative;
+  text-decoration: none;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 1px;
+  background-color: var(--hiranya-tertiary-fixed-dim);
+  transition: width var(--dur-base) var(--ease-luxury);
+}
+.nav-underline:hover::after,
+.nav-underline.active::after { width: 100%; }
+.nav-underline.active { color: var(--hiranya-primary) !important; }
+
+/* ---------- Product card ---------- */
+.product-card { cursor: pointer; }
+.product-card .product-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--hiranya-surface);
+  overflow: hidden;
+}
+.product-card .product-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slowest) ease-out;
+}
+.product-card:hover .product-media img { transform: scale(1.05); }
+
+.product-card .wishlist-toggle {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--hiranya-on-surface-variant);
+  transition: color var(--dur-base) var(--ease-luxury);
+  z-index: 2;
+}
+.product-card .wishlist-toggle:hover,
+.product-card .wishlist-toggle.active { color: var(--hiranya-royal-blue); }
+.product-card .wishlist-toggle.active .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.product-card .quick-view {
+  position: absolute;
+  left: 0; bottom: 0; width: 100%;
+  padding: 14px;
+  background: rgba(252, 249, 248, 0.92);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform var(--dur-slower) var(--ease-luxury);
+}
+.product-card:hover .quick-view { transform: translateY(0); }
+
+.product-card .product-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--hiranya-primary);
+  margin-bottom: 4px;
+}
+.product-card .product-meta { color: var(--hiranya-on-surface-variant); font-size: 14px; }
+.product-card .product-price { font-family: var(--font-body); font-weight: 600; color: var(--hiranya-primary); margin-top: 6px; }
+
+/* ---------- Chips / tags ---------- */
+.chip {
+  border: 1px solid var(--hiranya-outline-variant);
+  background: transparent;
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: var(--fs-label-caps);
+  letter-spacing: var(--ls-label-caps);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 0;
+  transition: border-color var(--dur-base) var(--ease-luxury), color var(--dur-base) var(--ease-luxury);
+}
+.chip:hover, .chip.active {
+  border-color: var(--hiranya-primary);
+  color: var(--hiranya-on-background);
+}
+
+/* ---------- Inputs ---------- */
+.input-underline {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  border-radius: 0;
+  padding: 10px 2px;
+  font-family: var(--font-body);
+  color: var(--hiranya-on-background);
+  width: 100%;
+}
+.input-underline:focus {
+  outline: none;
+  border-color: var(--hiranya-tertiary-fixed-dim);
+  box-shadow: none;
+}
+.form-label-caps {
+  font-family: var(--font-body);
+  font-size: var(--fs-label-caps);
+  letter-spacing: var(--ls-label-caps);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--hiranya-on-surface-variant);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ---------- Glass nav ---------- */
+.glass-nav {
+  background-color: rgba(252, 249, 248, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---------- Section rhythm ---------- */
+.section { padding-top: 80px; padding-bottom: 80px; }
+@media (min-width: 768px) {
+  .section { padding-top: var(--section-stack); padding-bottom: var(--section-stack); }
+}
+.container-hiranya {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--edge-margin-mobile);
+}
+@media (min-width: 768px) {
+  .container-hiranya { padding-inline: var(--edge-margin-tablet); }
+}
+@media (min-width: 992px) {
+  .container-hiranya { padding-inline: var(--edge-margin-desktop); }
+}
+
+/* ---------- Toast / notification ---------- */
+.hiranya-toast-stack {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 2000;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.hiranya-toast {
+  background: var(--hiranya-on-background);
+  color: #fff;
+  padding: 14px 20px;
+  min-width: 260px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0; transform: translateY(12px);
+  animation: toast-in var(--dur-slower) var(--ease-luxury) forwards;
+}
+.hiranya-toast.leaving { animation: toast-out var(--dur-base) var(--ease-luxury) forwards; }
+@keyframes toast-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes toast-out { to { opacity: 0; transform: translateY(12px); } }
+
+/* ---------- Badges (cart/wishlist counters) ---------- */
+.icon-badge {
+  position: absolute; top: -6px; right: -6px;
+  background: var(--hiranya-tertiary-fixed-dim);
+  color: var(--hiranya-on-tertiary-fixed-variant);
+  font-family: var(--font-body);
+  font-size: 10px; font-weight: 700;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- Empty states ---------- */
+.empty-state {
+  text-align: center;
+  padding: 100px 24px;
+}
+.empty-state .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--hiranya-outline);
+  margin-bottom: 16px;
+}
+
+/* ---------- Skeleton / scroll reveal ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-slowest) var(--ease-luxury), transform var(--dur-slowest) var(--ease-luxury); }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

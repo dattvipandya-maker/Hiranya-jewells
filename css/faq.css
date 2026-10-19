@@ -1,0 +1,49 @@
+/* ============================================================
+   HIRANYA — FAQ page
+   Bootstrap's accordion component is used for structure only;
+   every visual detail (color, focus ring, chevron tint, spacing)
+   is restyled here to match the brand instead of default Bootstrap.
+   ============================================================ */
+
+.hiranya-accordion .accordion-item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  border-radius: 0;
+}
+.hiranya-accordion .accordion-item:first-of-type,
+.hiranya-accordion .accordion-item:last-of-type {
+  border-radius: 0;
+}
+
+.hiranya-accordion .accordion-button {
+  background: transparent;
+  color: var(--hiranya-on-background);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 20px 4px;
+  box-shadow: none;
+  border-radius: 0 !important;
+}
+.hiranya-accordion .accordion-button:not(.collapsed) {
+  color: var(--hiranya-primary);
+  background: transparent;
+}
+.hiranya-accordion .accordion-button:focus {
+  box-shadow: none;
+  outline: 2px solid var(--hiranya-royal-blue);
+  outline-offset: -2px;
+}
+/* Recolor Bootstrap's default blue chevron icon toward the brand's gold/graphite palette */
+.hiranya-accordion .accordion-button::after {
+  filter: sepia(35%) saturate(300%) hue-rotate(-10deg) brightness(0.85);
+}
+
+.hiranya-accordion .accordion-body {
+  padding: 0 4px 24px;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+#hallmark { scroll-margin-top: calc(var(--header-h, 84px) + 16px); } /* keeps the anchored heading clear of the sticky header */

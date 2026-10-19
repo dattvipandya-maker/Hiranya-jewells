@@ -1,0 +1,231 @@
+/* ============================================================
+   HIRANYA — Lookbook
+   ============================================================ */
+
+.lookbook-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  border-top: 1px solid var(--hiranya-outline-variant);
+}
+@media (min-width: 992px) {
+  .lookbook-block { grid-template-columns: 1.1fr 0.9fr; min-height: 560px; }
+  .lookbook-reversed { grid-template-columns: 0.9fr 1.1fr; }
+  .lookbook-reversed .lookbook-image { order: 2; }
+  .lookbook-reversed .lookbook-copy { order: 1; }
+}
+
+.lookbook-image {
+  overflow: hidden;
+  background-color: var(--hiranya-surface-container-low);
+  min-height: 360px;
+}
+.lookbook-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slowest) ease-out;
+}
+.lookbook-block:hover .lookbook-image img { transform: scale(1.03); }
+
+.lookbook-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px var(--edge-margin-mobile);
+}
+@media (min-width: 992px) {
+  .lookbook-copy { padding: 64px 72px; }
+}
+.lookbook-copy em { font-style: italic; color: var(--hiranya-primary); }
+
+/* ============================================================
+   Lookbook page — cover hero, quick-nav, redesigned rows,
+   mini "shop the edit" thumbnails, stats band, closing CTA.
+   (The .lookbook-block/.lookbook-image/.lookbook-copy rules above
+   stay untouched — about.html and jewellery-care.html also use
+   them for their own editorial rows.)
+   ============================================================ */
+
+/* ---------- Cover hero ---------- */
+.lookbook-hero {
+  position: relative;
+  height: 62vh;
+  min-height: 440px;
+  max-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.lookbook-hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+}
+.lookbook-hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(17,17,17,0.6) 0%, rgba(17,17,17,0.18) 45%, rgba(17,17,17,0.35) 100%);
+}
+.lookbook-hero-content {
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 760px;
+}
+.lookbook-hero-content .label-caps { color: var(--hiranya-tertiary-fixed-dim); letter-spacing: 0.3em; }
+.lookbook-hero-content h1 {
+  color: #fff;
+  margin-top: 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
+.lookbook-hero-content p {
+  color: rgba(255,255,255,0.82);
+  margin-top: 16px;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: #fff;
+  opacity: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.scroll-cue .material-symbols-outlined {
+  animation: scrollCueBob 2.2s var(--ease-luxury) infinite;
+}
+@keyframes scrollCueBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ---------- Sticky quick-nav ---------- */
+.lookbook-quicknav {
+  position: sticky;
+  top: var(--header-h, 84px);
+  z-index: 20;
+  background: rgba(252,249,248,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+}
+.lookbook-quicknav-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 16px var(--edge-margin-mobile);
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+@media (min-width: 992px) {
+  .lookbook-quicknav-inner { padding: 18px var(--edge-margin-desktop); justify-content: center; }
+}
+.quicknav-chip {
+  flex-shrink: 0;
+  border: 1px solid var(--hiranya-outline-variant);
+  background: transparent;
+  color: var(--hiranya-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: all var(--dur-base) var(--ease-luxury);
+}
+.quicknav-chip:hover { border-color: var(--hiranya-primary); color: var(--hiranya-on-background); }
+.quicknav-chip.active {
+  background: var(--hiranya-on-background);
+  border-color: var(--hiranya-on-background);
+  color: #fff;
+}
+
+/* ---------- Redesigned collection rows ---------- */
+.lookbook-block { position: relative; scroll-margin-top: calc(var(--header-h, 84px) + 56px); }
+#collections-start { scroll-margin-top: calc(var(--header-h, 84px) + 56px); }
+.ghost-number {
+  position: absolute;
+  top: -0.35em;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: 160px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--hiranya-outline-variant);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 991.98px) { .ghost-number { font-size: 96px; } }
+.lookbook-copy { position: relative; z-index: 1; }
+.lookbook-copy .collection-eyebrow {
+  color: var(--hiranya-gold);
+  letter-spacing: 0.2em;
+}
+.lookbook-copy h2 { margin: 10px 0 18px; }
+.lookbook-copy .collection-blurb { max-width: 460px; }
+.lookbook-copy .collection-count { font-size: 14px; }
+
+.shop-the-edit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.shop-the-edit-link .material-symbols-outlined {
+  font-size: 18px;
+  transition: transform var(--dur-base) var(--ease-luxury);
+}
+.shop-the-edit-link:hover .material-symbols-outlined { transform: translateX(4px); }
+
+/* Mini "shop the edit" thumbnail strip */
+.mini-thumbs {
+  display: flex;
+  gap: 10px;
+  margin: 24px 0 28px;
+}
+.mini-thumbs a {
+  display: block;
+  width: 56px; height: 68px;
+  overflow: hidden;
+  border: 1px solid var(--hiranya-outline-variant);
+  flex-shrink: 0;
+  transition: border-color var(--dur-base) var(--ease-luxury);
+}
+.mini-thumbs a:hover { border-color: var(--hiranya-tertiary-fixed-dim); }
+.mini-thumbs a img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Stats band ---------- */
+.lookbook-stats {
+  background: var(--hiranya-surface-container-low);
+  border-top: 1px solid var(--hiranya-outline-variant);
+  border-bottom: 1px solid var(--hiranya-outline-variant);
+  padding: 64px 0;
+}
+.lookbook-stats .stat-figure {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--hiranya-primary);
+  line-height: 1;
+}
+.lookbook-stats .stat-label {
+  color: var(--hiranya-on-surface-variant);
+  margin-top: 10px;
+}
+.lookbook-stats .stat-divider {
+  width: 1px;
+  background: var(--hiranya-outline-variant);
+  height: 56px;
+}
+
+/* ---------- Closing CTA ---------- */
+.lookbook-cta {
+  padding: var(--section-stack) 0;
+  text-align: center;
+}
+.lookbook-cta p { max-width: 520px; margin-inline: auto; }
+
