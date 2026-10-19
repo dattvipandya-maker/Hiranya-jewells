@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | HIRANYA</title>
+<meta name="description" content="How this HIRANYA portfolio project handles data — and what it doesn't collect.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/privacy.css">
+</head>
+<body data-page="privacy">
+
+<!-- ============ HEADER ============ -->
+<header class="hiranya-header glass-nav">
+  <nav class="hiranya-nav">
+    <button class="d-lg-none btn btn-hiranya-ghost" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div class="d-none d-lg-flex hiranya-nav-links">
+      <a href="shop.html?category=Women" data-nav-link class="nav-underline">Women</a>
+      <a href="shop.html?category=Men" data-nav-link class="nav-underline">Men</a>
+      <a href="shop.html" data-nav-link class="nav-underline">Collections</a>
+      <a href="lookbook.html" data-nav-link class="nav-underline">Bespoke</a>
+    </div>
+    <a href="index.html" class="hiranya-logo">HIRANYA</a>
+    <div class="d-flex align-items-center gap-2 hiranya-nav-icons">
+      <button data-search-open aria-label="Search"><span class="material-symbols-outlined">search</span></button>
+      <a href="wishlist.html" class="position-relative d-inline-flex" aria-label="Wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="icon-badge" data-wishlist-count style="display:none;">0</span>
+      </a>
+      <button class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Shopping bag">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="icon-badge" data-cart-count style="display:none;">0</span>
+      </button>
+      <a href="account.html" class="d-none d-lg-inline-flex" aria-label="Account"><span class="material-symbols-outlined">person</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="offcanvas offcanvas-start hiranya-offcanvas" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="hiranya-logo">HIRANYA</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="shop.html?category=Women" class="nav-link-mobile">Women</a>
+    <a href="shop.html?category=Men" class="nav-link-mobile">Men</a>
+    <a href="shop.html" class="nav-link-mobile">Collections</a>
+    <a href="lookbook.html" class="nav-link-mobile">Bespoke</a>
+    
+    <a href="account.html" class="nav-link-mobile">Account</a>
+    <a href="shop.html" class="nav-link-mobile"></a>
+    <a href="cart.html" class="nav-link-mobile"></a>
+    <a href="jewellery-care.html" class="nav-link-mobile"></a>
+    <a href="wishlist.html" class="nav-link-mobile"></a>
+    <a href="index.html" class="nav-link-mobile"></a>
+    <a href="about.html" class="nav-link-mobile"></a>
+    <a href="faq.html" class="nav-link-mobile"></a>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title">Your Bag</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartDrawerBody" class="flex-grow-1"></div>
+    <div id="cartDrawerFooter" class="border-top pt-3 mt-3 d-none" style="border-color: var(--hiranya-outline-variant) !important;">
+      <div class="d-flex justify-content-between mb-3">
+        <span class="body-md">Subtotal</span>
+        <span class="body-md fw-semibold" id="cartDrawerSubtotal">₹0</span>
+      </div>
+      <a href="cart.html" class="btn btn-hiranya-outline w-100 mb-2 text-center">View Bag</a>
+      <a href="checkout.html" class="btn btn-hiranya-primary w-100 text-center">Checkout</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-on-surface-var">search</span>
+      <input type="text" id="searchInput" class="search-input-lg" placeholder="Search necklaces, rings, collections…" aria-label="Search HIRANYA">
+      <button data-search-close class="btn btn-hiranya-ghost" aria-label="Close search"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="searchSuggested" class="mb-4"></div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main style="padding-top:0;">
+
+  <section class="section container-hiranya" style="padding-bottom:48px;">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7">
+        <span class="label-caps text-on-surface-var d-block mb-3">Legal</span>
+        <h1 class="display-lg mb-3">Privacy Policy</h1>
+        <p class="body-md text-on-surface-var">Last updated: August 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-hiranya" style="padding-bottom: var(--section-stack);">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 legal-body">
+
+        
+
+        <h2>1. Information We'd Collect</h2>
+        <p>In a live version of this store, creating an account, placing an order, or joining the newsletter would collect: your name, email address, phone number, shipping address, and order history. Payment details would be handled entirely by a licensed third-party payment gateway — HIRANYA's own systems would never store card numbers, CVVs, or UPI credentials.</p>
+
+        <h2>2. How We'd Use It</h2>
+        <ul>
+          <li>To process and ship orders, and to communicate about their status.</li>
+          <li>To respond to messages sent through the Contact page.</li>
+          <li>To send newsletter updates, only if you've opted in — and you'd be able to unsubscribe at any time.</li>
+          <li>To improve the site based on aggregate, anonymized browsing patterns.</li>
+        </ul>
+
+        <h2>3. What This Demo Actually Stores</h2>
+        <p>In this project as built, the following live only in your browser's local storage, on your device, and are cleared if you clear your browser data:</p>
+        <ul>
+          <li>Items in your bag and wishlist.</li>
+          <li>Demo account details you type into the Sign In / Register form (not verified against any real system).</li>
+          <li>Demo orders placed through Checkout.</li>
+        </ul>
+        <p>None of the above is sent to a server, logged, or accessible to anyone but you, on your own device.</p>
+
+        <h2>4. Cookies</h2>
+        <p>This site does not set tracking or advertising cookies. <code>localStorage</code> is used instead of cookies for cart/wishlist/account state, and is not shared across sites or sent with network requests.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>This page loads fonts from Google Fonts and styling from the Bootstrap CDN — both standard, publicly hosted static assets. In a live version, a payment gateway (e.g. Razorpay or similar) would process payments directly and would have its own separate privacy policy.</p>
+
+        <h2>6. Your Choices</h2>
+        <p>You can clear everything this site has stored at any time by clearing your browser's site data for this domain, or by using your browser's developer tools to clear <code>localStorage</code>.</p>
+
+        <h2>7. Contact</h2>
+        <p>Questions about this policy (or about the project itself) can be sent through the <a href="contact.html" class="text-primary-brand">Contact page</a>.</p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="hiranya-footer">
+  <div class="footer-inner row g-5">
+    <div class="col-12 col-md-4">
+      <div class="footer-brand">HIRANYA</div>
+      <p class="body-md text-on-surface-var mb-3" style="max-width:320px;">Crafting timeless elegance. Our pieces are a synthesis of classical opulence and contemporary minimalism.</p>
+      <p class="body-md text-on-surface-var">© 2026 HIRANYA. Crafted for Eternity.</p>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="about.html#sustainability">Sustainability</a></li>
+        <li><a href="faq.html#hallmark">BIS Hallmarked</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Assistance</h4>
+      <ul>
+        <li><a href="contact.html">Outlet
+        </a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="jewellery-care.html">Jewellery Care</a></li>
+        <li><a href="privacy policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4">
+      <h4>Stay Connected</h4>
+      <p class="body-md text-on-surface-var mb-3">Join the HIRANYA world for exclusive reveals.</p>
+      <form class="newsletter-form d-flex flex-column gap-3" id="footerNewsletterForm">
+        <input type="email" required placeholder="Your Email Address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/products.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script>
+  document.getElementById("footerNewsletterForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    hiranyaToast("Thank you — you're on the list", "mail");
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

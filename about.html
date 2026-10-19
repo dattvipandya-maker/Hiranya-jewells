@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About HIRANYA | Heritage, Craftsmanship & Sustainability</title>
+<meta name="description" content="The story behind HIRANYA — heritage craftsmanship, our design process, and how we source responsibly.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/lookbook.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body data-page="about">
+
+<!-- ============ HEADER ============ -->
+<header class="hiranya-header glass-nav">
+  <nav class="hiranya-nav">
+    <button class="d-lg-none btn btn-hiranya-ghost" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div class="d-none d-lg-flex hiranya-nav-links">
+      <a href="shop.html?category=Women" data-nav-link class="nav-underline">Women</a>
+      <a href="shop.html?category=Men" data-nav-link class="nav-underline">Men</a>
+      <a href="shop.html" data-nav-link class="nav-underline">Collections</a>
+      <a href="lookbook.html" data-nav-link class="nav-underline">Bespoke</a>
+    </div>
+    <a href="index.html" class="hiranya-logo">HIRANYA</a>
+    <div class="d-flex align-items-center gap-2 hiranya-nav-icons">
+      <button data-search-open aria-label="Search"><span class="material-symbols-outlined">search</span></button>
+      <a href="wishlist.html" class="position-relative d-inline-flex" aria-label="Wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="icon-badge" data-wishlist-count style="display:none;">0</span>
+      </a>
+      <button class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Shopping bag">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="icon-badge" data-cart-count style="display:none;">0</span>
+      </button>
+      <a href="account.html" class="d-none d-lg-inline-flex" aria-label="Account"><span class="material-symbols-outlined">person</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="offcanvas offcanvas-start hiranya-offcanvas" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="hiranya-logo">HIRANYA</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="shop.html?category=Women" class="nav-link-mobile">Women</a>
+    <a href="shop.html?category=Men" class="nav-link-mobile">Men</a>
+    <a href="shop.html" class="nav-link-mobile">Collections</a>
+    <a href="lookbook.html" class="nav-link-mobile">Bespoke</a>
+    <a href="account.html" class="nav-link-mobile">Account</a>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title">Your Bag</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartDrawerBody" class="flex-grow-1"></div>
+    <div id="cartDrawerFooter" class="border-top pt-3 mt-3 d-none" style="border-color: var(--hiranya-outline-variant) !important;">
+      <div class="d-flex justify-content-between mb-3">
+        <span class="body-md">Subtotal</span>
+        <span class="body-md fw-semibold" id="cartDrawerSubtotal">₹0</span>
+      </div>
+      <a href="cart.html" class="btn btn-hiranya-outline w-100 mb-2 text-center">View Bag</a>
+      <a href="checkout.html" class="btn btn-hiranya-primary w-100 text-center">Checkout</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-on-surface-var">search</span>
+      <input type="text" id="searchInput" class="search-input-lg" placeholder="Search necklaces, rings, collections…" aria-label="Search HIRANYA">
+      <button data-search-close class="btn btn-hiranya-ghost" aria-label="Close search"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="searchSuggested" class="mb-4"></div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main style="padding-top:0;">
+
+  <!-- Intro -->
+  <section class="section container-hiranya" style="padding-bottom:64px;">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <span class="label-caps text-on-surface-var d-block mb-3">Since the Atelier's First Bench</span>
+        <h1 class="display-lg mb-4">Heritage, Held Lightly</h1>
+        <p class="body-lg text-on-surface-var">HIRANYA — from the Sanskrit for gold — began as a single karigar's bench and a belief that heirloom craftsmanship didn't need heirloom weight. Every piece we make still passes through the same hands-on process; only the silhouettes have grown quieter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="lookbook-block reveal">
+    <div class="lookbook-image">
+      <img src="assets/ChatGPT Image Aug 12, 2026, 05_42_07 PM.png" loading="lazy">
+    </div>
+    <div class="lookbook-copy">
+      <span class="label-caps text-champagne d-block mb-3">Our Story</span>
+      <h2 class="display-md mb-4">Two Cities, One Bench</h2>
+      <p class="body-lg text-on-surface-var mb-3">HIRANYA was founded on the idea that a piece of jewellery should carry the weight of its craft, not the weight of its gold. Our karigars trained in Jaipur's old kundan workshops; our design language was shaped by a decade spent between Mumbai ateliers and European ready-to-wear studios.</p>
+      <p class="body-md text-on-surface-var">What emerged is deliberately in-between: traditional joinery and stone-setting techniques, restrained into shapes that don't compete with what you're already wearing.</p>
+    </div>
+  </section>
+
+  <!-- Heritage -->
+  <section class="lookbook-block lookbook-reversed reveal">
+    <div class="lookbook-image">
+      <img src="assets/necklace profile design.png" alt="Traditional gold Polki necklace craftsmanship" loading="lazy">
+    </div>
+    <div class="lookbook-copy">
+      <span class="label-caps text-champagne d-block mb-3">Heritage</span>
+      <h2 class="display-md mb-4">What We Keep From the Past</h2>
+      <p class="body-lg text-on-surface-var mb-3">Kundan setting, temple motifs, and meenakari enamelling on the reverse of a piece — details no one sees but the person wearing it — are not decorative choices. They're the techniques that separate an heirloom from an accessory, and we haven't found a reason to abandon them.</p>
+      <p class="body-md text-on-surface-var">Where a modern silhouette calls for it, we simplify the setting or lighten the gold weight. We never simplify the technique itself.</p>
+    </div>
+  </section>
+
+  <!-- Craftsmanship -->
+  <section class="section container-hiranya">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <h2 class="display-md mb-3">Craftsmanship</h2>
+        <p class="body-lg text-on-surface-var">Every HIRANYA piece passes through the same five hands before it reaches yours.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="craft-step reveal">
+          <span class="craft-number">01</span>
+          <h3 class="title-md mb-2">Design &amp; CAD</h3>
+          <p class="body-md text-on-surface-var">Every silhouette is modelled in 3D before a single gram of metal is cast, so proportions are settled before craftsmanship begins.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="craft-step reveal">
+          <span class="craft-number">02</span>
+          <h3 class="title-md mb-2">Hand-Setting</h3>
+          <p class="body-md text-on-surface-var">Stones are set by hand under magnification — the same kundan and prong techniques used in Jaipur's workshops for generations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="craft-step reveal">
+          <span class="craft-number">03</span>
+          <h3 class="title-md mb-2">Finishing &amp; Hallmarking</h3>
+          <p class="body-md text-on-surface-var">Each piece is polished, quality-checked, and BIS hallmarked before it's photographed — nothing ships without both.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainability -->
+  <section id="sustainability" class="lookbook-block reveal">
+    <div class="lookbook-image">
+      <img src="assets/shipping bag.png" alt="Close-up of a diamond ring reflecting sustainable sourcing practices" loading="lazy">
+    </div>
+    <div class="lookbook-copy">
+      <span class="label-caps text-champagne d-block mb-3">Sustainability</span>
+      <h2 class="display-md mb-4">Gold That's Been Gold Before</h2>
+      <p class="body-lg text-on-surface-var mb-3">A meaningful share of the gold we work with is recycled from existing jewellery, refined to the same purity as newly mined metal. Our diamonds are sourced through suppliers who follow the Kimberley Process, and every gemstone above 0.5ct ships with its own certification.</p>
+      <p class="body-md text-on-surface-var">We'd rather make fewer pieces well than more pieces quickly — which is, in the end, its own kind of sustainability.</p>
+    </div>
+  </section>
+
+  <!-- Authenticity -->
+  <section class="section container-hiranya text-center">
+    <h2 class="display-md mb-4">Authenticity, in Writing</h2>
+    <p class="body-lg text-on-surface-var mx-auto mb-5" style="max-width:640px;">Every HIRANYA piece ships with BIS hallmarking, a signed certificate of authenticity, and — for diamonds above 0.5ct — independent gemological certification. Nothing about what you're wearing should be a matter of trust alone.</p>
+    <a href="shop.html" class="btn btn-hiranya-primary">Explore the Collection</a>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="hiranya-footer">
+  <div class="footer-inner row g-5">
+    <div class="col-12 col-md-4">
+      <div class="footer-brand">HIRANYA</div>
+      <p class="body-md text-on-surface-var mb-3" style="max-width:320px;">Crafting timeless elegance. Our pieces are a synthesis of classical opulence and contemporary minimalism.</p>
+      <p class="body-md text-on-surface-var">© 2026 HIRANYA. Crafted for Eternity.</p>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="about.html#sustainability">Sustainability</a></li>
+        <li><a href="faq.html#hallmark">BIS Hallmarked</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Assistance</h4>
+      <ul>
+        <li><a href="contact.html">Store Locator</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="jewellery-care.html">Jewellery Care</a></li>
+        <li><a href="privacy policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4">
+      <h4>Stay Connected</h4>
+      <p class="body-md text-on-surface-var mb-3">Join the HIRANYA world for exclusive reveals.</p>
+      <form class="newsletter-form d-flex flex-column gap-3" id="footerNewsletterForm">
+        <input type="email" required placeholder="Your Email Address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">Designed &amp; built as a HIRANYA portfolio project. Not an active commercial store.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/products.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script>
+  document.getElementById("footerNewsletterForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    hiranyaToast("Thank you — you're on the list", "mail");
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

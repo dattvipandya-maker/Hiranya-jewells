@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Bag | HIRANYA</title>
+<meta name="description" content="Review the pieces in your HIRANYA bag before checkout.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body data-page="cart">
+
+<!-- ============ HEADER ============ -->
+<header class="hiranya-header glass-nav">
+  <nav class="hiranya-nav">
+    <button class="d-lg-none btn btn-hiranya-ghost" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div class="d-none d-lg-flex hiranya-nav-links">
+      <a href="shop.html?category=Women" data-nav-link class="nav-underline">Women</a>
+      <a href="shop.html?category=Men" data-nav-link class="nav-underline">Men</a>
+      <a href="shop.html" data-nav-link class="nav-underline">Collections</a>
+      <a href="lookbook.html" data-nav-link class="nav-underline">Bespoke</a>
+    </div>
+    <a href="index.html" class="hiranya-logo">HIRANYA</a>
+    <div class="d-flex align-items-center gap-2 hiranya-nav-icons">
+      <button data-search-open aria-label="Search"><span class="material-symbols-outlined">search</span></button>
+      <a href="wishlist.html" class="position-relative d-inline-flex" aria-label="Wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="icon-badge" data-wishlist-count style="display:none;">0</span>
+      </a>
+      <button class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Shopping bag">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="icon-badge" data-cart-count style="display:none;">0</span>
+      </button>
+      <a href="account.html" class="d-none d-lg-inline-flex" aria-label="Account"><span class="material-symbols-outlined">person</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="offcanvas offcanvas-start hiranya-offcanvas" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="hiranya-logo">HIRANYA</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="shop.html?category=Women" class="nav-link-mobile">Women</a>
+    <a href="shop.html?category=Men" class="nav-link-mobile">Men</a>
+    <a href="shop.html" class="nav-link-mobile">Collections</a>
+    <a href="lookbook.html" class="nav-link-mobile">Bespoke</a>
+    <a href="account.html" class="nav-link-mobile">Account</a>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title">Your Bag</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartDrawerBody" class="flex-grow-1"></div>
+    <div id="cartDrawerFooter" class="border-top pt-3 mt-3 d-none" style="border-color: var(--hiranya-outline-variant) !important;">
+      <div class="d-flex justify-content-between mb-3">
+        <span class="body-md">Subtotal</span>
+        <span class="body-md fw-semibold" id="cartDrawerSubtotal">₹0</span>
+      </div>
+      <a href="cart.html" class="btn btn-hiranya-outline w-100 mb-2 text-center">View Bag</a>
+      <a href="checkout.html" class="btn btn-hiranya-primary w-100 text-center">Checkout</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-on-surface-var">search</span>
+      <input type="text" id="searchInput" class="search-input-lg" placeholder="Search necklaces, rings, collections…" aria-label="Search HIRANYA">
+      <button data-search-close class="btn btn-hiranya-ghost" aria-label="Close search"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="searchSuggested" class="mb-4"></div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main style="padding-top:120px; padding-bottom: var(--section-stack);">
+  <div class="container-hiranya">
+    <h1 class="display-lg mb-5">Your Bag</h1>
+
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div id="cartPageLines"></div>
+        <div class="empty-state d-none" id="cartPageEmpty">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <p class="title-md mb-1">Your bag is empty</p>
+          <p class="body-md text-on-surface-var mb-4">Pieces you add to your bag will appear here.</p>
+          <a href="shop.html" class="btn btn-hiranya-primary">Continue Shopping</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="cart-summary-card" id="cartPageSummary">
+          <h2 class="title-md mb-4">Order Summary</h2>
+          <div class="row-line d-none" id="summarySavingsRow">
+            <span>You Save</span>
+            <span id="summarySavings" class="text-royal fw-semibold"></span>
+          </div>
+          <div class="row-line"><span>Subtotal</span><span id="summarySubtotal">₹0</span></div>
+          <div class="row-line"><span>GST (3%)</span><span id="summaryTax">₹0</span></div>
+          <div class="row-line"><span>Shipping</span><span id="summaryShipping">Complimentary</span></div>
+          <div class="row-line row-total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+          <a href="checkout.html" class="btn btn-hiranya-primary w-100 mt-4 text-center">Proceed to Checkout</a>
+          <button type="button" class="btn btn-hiranya-ghost w-100 mt-2" onclick="clearCart()">Clear Bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="hiranya-footer">
+  <div class="footer-inner row g-5">
+    <div class="col-12 col-md-4">
+      <div class="footer-brand">HIRANYA</div>
+      <p class="body-md text-on-surface-var mb-3" style="max-width:320px;">Crafting timeless elegance. Our pieces are a synthesis of classical opulence and contemporary minimalism.</p>
+      <p class="body-md text-on-surface-var">© 2026 HIRANYA. Crafted for Eternity.</p>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="faq.html#hallmark">BIS Hallmarked</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Assistance</h4>
+      <ul>
+        <li><a href="contact.html">Store Locator</a></li>
+        <li><a href="privacy policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4">
+      <h4>Stay Connected</h4>
+      <form class="newsletter-form d-flex flex-column gap-3" id="footerNewsletterForm">
+        <input type="email" required placeholder="Your Email Address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">Designed &amp; built as a HIRANYA portfolio project. Not an active commercial store.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/products.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script>
+  document.getElementById("footerNewsletterForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    hiranyaToast("Thank you — you're on the list", "mail");
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

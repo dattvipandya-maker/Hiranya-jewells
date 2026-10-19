@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Account | HIRANYA</title>
+<meta name="description" content="Sign in to your HIRANYA account to view orders, wishlist and saved addresses.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/account.css">
+</head>
+<body data-page="account">
+
+<!-- ============ HEADER ============ -->
+<header class="hiranya-header glass-nav">
+  <nav class="hiranya-nav">
+    <button class="d-lg-none btn btn-hiranya-ghost" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div class="d-none d-lg-flex hiranya-nav-links">
+      <a href="shop.html?category=Women" data-nav-link class="nav-underline">Women</a>
+      <a href="shop.html?category=Men" data-nav-link class="nav-underline">Men</a>
+      <a href="shop.html" data-nav-link class="nav-underline">Collections</a>
+      <a href="lookbook.html" data-nav-link class="nav-underline">Bespoke</a>
+    </div>
+    <a href="index.html" class="hiranya-logo">HIRANYA</a>
+    <div class="d-flex align-items-center gap-2 hiranya-nav-icons">
+      <button data-search-open aria-label="Search"><span class="material-symbols-outlined">search</span></button>
+      <a href="wishlist.html" class="position-relative d-inline-flex" aria-label="Wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+        <span class="icon-badge" data-wishlist-count style="display:none;">0</span>
+      </a>
+      <button class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Shopping bag">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="icon-badge" data-cart-count style="display:none;">0</span>
+      </button>
+      <a href="account.html" class="d-none d-lg-inline-flex" aria-label="Account"><span class="material-symbols-outlined">person</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="offcanvas offcanvas-start hiranya-offcanvas" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="hiranya-logo">HIRANYA</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="shop.html?category=Women" class="nav-link-mobile">Women</a>
+    <a href="shop.html?category=Men" class="nav-link-mobile">Men</a>
+    <a href="shop.html" class="nav-link-mobile">Collections</a>
+    <a href="lookbook.html" class="nav-link-mobile">Bespoke</a>
+    <a href="account.html" class="nav-link-mobile">Account</a>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title">Your Bag</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartDrawerBody" class="flex-grow-1"></div>
+    <div id="cartDrawerFooter" class="border-top pt-3 mt-3 d-none" style="border-color: var(--hiranya-outline-variant) !important;">
+      <div class="d-flex justify-content-between mb-3">
+        <span class="body-md">Subtotal</span>
+        <span class="body-md fw-semibold" id="cartDrawerSubtotal">₹0</span>
+      </div>
+      <a href="cart.html" class="btn btn-hiranya-outline w-100 mb-2 text-center">View Bag</a>
+      <a href="checkout.html" class="btn btn-hiranya-primary w-100 text-center">Checkout</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="material-symbols-outlined text-on-surface-var">search</span>
+      <input type="text" id="searchInput" class="search-input-lg" placeholder="Search necklaces, rings, collections…" aria-label="Search HIRANYA">
+      <button data-search-close class="btn btn-hiranya-ghost" aria-label="Close search"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="searchSuggested" class="mb-4"></div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main style="padding-top:64px; padding-bottom: var(--section-stack);">
+  <div class="container-hiranya">
+
+    <!-- ========== SIGNED-OUT VIEW ========== -->
+    <div id="accountAuthView">
+      <div class="text-center mb-5">
+        <h1 class="display-lg mb-3">Your Account</h1>
+        <p class="body-lg text-on-surface-var">Sign in to view your orders, wishlist and saved addresses.</p>
+      </div>
+
+      <div class="auth-card">
+        <div class="demo-auth-note">
+          <span class="material-symbols-outlined align-middle me-1" style="font-size:16px; color: var(--hiranya-gold);">info</span>
+          Please Insert Details Properly.
+        </div>
+
+        <div class="auth-toggle">
+          <button type="button" data-auth-tab="login" class="active">Sign In</button>
+          <button type="button" data-auth-tab="register">Create Account</button>
+        </div>
+
+        <div id="loginPanel">
+          <form id="loginForm" novalidate>
+            <div class="mb-4">
+              <label for="loginEmail" class="form-label-caps">Email</label>
+              <input type="email" id="loginEmail" name="loginEmail" class="input-underline" required>
+            </div>
+            <div class="mb-4">
+              <label for="loginPassword" class="form-label-caps">Password</label>
+              <input type="password" id="loginPassword" name="loginPassword" class="input-underline" required minlength="1">
+            </div>
+            <button type="submit" class="btn btn-hiranya-primary w-100">Sign In</button>
+          </form>
+        </div>
+
+        <div id="registerPanel" class="d-none">
+          <form id="registerForm" novalidate>
+            <div class="mb-4">
+              <label for="registerName" class="form-label-caps">Full Name</label>
+              <input type="text" id="registerName" name="registerName" class="input-underline" required>
+            </div>
+            <div class="mb-4">
+              <label for="registerEmail" class="form-label-caps">Email</label>
+              <input type="email" id="registerEmail" name="registerEmail" class="input-underline" required>
+            </div>
+            <div class="mb-4">
+              <label for="registerPassword" class="form-label-caps">Password</label>
+              <input type="password" id="registerPassword" name="registerPassword" class="input-underline" required minlength="1">
+            </div>
+            <button type="submit" class="btn btn-hiranya-primary w-100">Create Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SIGNED-IN DASHBOARD ========== -->
+    <div id="accountDashboardView" class="d-none">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div>
+          <span class="label-caps text-on-surface-var d-block mb-2">Welcome back</span>
+          <h1 class="display-lg mb-2" id="accountWelcomeName">—</h1>
+          <p class="body-md text-on-surface-var mb-0" id="accountEmailDisplay"></p>
+          <p class="body-md text-on-surface-var" id="accountJoinedDisplay"></p>
+        </div>
+        <button type="button" class="btn btn-hiranya-outline" id="signOutBtn">Sign Out</button>
+      </div>
+
+      <ul class="nav account-tabs" id="accountTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#accountOverviewPane" type="button" role="tab">Overview</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#accountOrdersPane" type="button" role="tab">Orders</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#accountAddressPane" type="button" role="tab">Addresses</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#accountWishlistPane" type="button" role="tab">Wishlist</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#accountSettingsPane" type="button" role="tab">Settings</button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- Overview -->
+        <div class="tab-pane fade show active" id="accountOverviewPane" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="store-card border p-4" style="border-color: var(--hiranya-outline-variant) !important;">
+                <p class="label-caps text-on-surface-var mb-2">Orders</p>
+                <p class="display-md mb-0" id="overviewOrderCount">0</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="store-card border p-4" style="border-color: var(--hiranya-outline-variant) !important;">
+                <p class="label-caps text-on-surface-var mb-2">Wishlist</p>
+                <p class="display-md mb-0"><span id="accountWishlistCount">0</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="store-card border p-4" style="border-color: var(--hiranya-outline-variant) !important;">
+                <p class="label-caps text-on-surface-var mb-2">Saved Address</p>
+                <p class="title-md mb-0" id="overviewAddressStatus">Not added</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders -->
+        <div class="tab-pane fade" id="accountOrdersPane" role="tabpanel">
+          <div id="ordersList"></div>
+          <div class="empty-state d-none" id="ordersEmpty">
+            <span class="material-symbols-outlined">local_shipping</span>
+            <p class="title-md mb-1">No orders yet</p>
+            <p class="body-md text-on-surface-var mb-4">Your order history will show up here once you check out.</p>
+            <a href="shop.html" class="btn btn-hiranya-primary">Start Shopping</a>
+          </div>
+        </div>
+
+        <!-- Addresses -->
+        <div class="tab-pane fade" id="accountAddressPane" role="tabpanel">
+          <p class="body-md text-on-surface-var mb-4">Save a default shipping address to speed up checkout.</p>
+          <form id="addressForm" class="address-form-grid" novalidate>
+            <div class="row g-4 mb-4">
+              <div class="col-sm-6">
+                <label for="addrFullName" class="form-label-caps">Full Name</label>
+                <input type="text" id="addrFullName" name="fullName" class="input-underline" required>
+              </div>
+              <div class="col-sm-6">
+                <label for="addrPhone" class="form-label-caps">Phone</label>
+                <input type="tel" id="addrPhone" name="phone" class="input-underline" pattern="[0-9]{10}" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="addrLine1" class="form-label-caps">Address</label>
+              <input type="text" id="addrLine1" name="line1" class="input-underline" required>
+            </div>
+            <div class="row g-4 mb-4">
+              <div class="col-sm-4">
+                <label for="addrCity" class="form-label-caps">City</label>
+                <input type="text" id="addrCity" name="city" class="input-underline" required>
+              </div>
+              <div class="col-sm-4">
+                <label for="addrState" class="form-label-caps">State</label>
+                <input type="text" id="addrState" name="state" class="input-underline" required>
+              </div>
+              <div class="col-sm-4">
+                <label for="addrPincode" class="form-label-caps">PIN Code</label>
+                <input type="text" id="addrPincode" name="pincode" class="input-underline" pattern="[0-9]{6}" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-hiranya-primary">Save Address</button>
+          </form>
+        </div>
+
+        <!-- Wishlist -->
+        <div class="tab-pane fade" id="accountWishlistPane" role="tabpanel">
+          <p class="body-md text-on-surface-var mb-4">You have <span id="accountWishlistCount2" class="fw-semibold"></span> piece(s) saved.</p>
+          <a href="wishlist.html" class="btn btn-hiranya-outline">View Full Wishlist</a>
+        </div>
+
+        <!-- Settings -->
+        <div class="tab-pane fade" id="accountSettingsPane" role="tabpanel">
+          <div class="settings-row">
+            <div>
+              <p class="title-md mb-1" style="font-size:16px;">Sign Out</p>
+              <p class="body-md text-on-surface-var mb-0">End this demo session on this device.</p>
+            </div>
+            <button type="button" class="btn btn-hiranya-outline" onclick="document.getElementById('signOutBtn').click()">Sign Out</button>
+          </div>
+          <div class="settings-row">
+            <div>
+              <p class="title-md mb-1" style="font-size:16px;">Clear Demo Data</p>
+              <p class="body-md text-on-surface-var mb-0">Removes this account, its orders, and its saved address from this browser.</p>
+            </div>
+            <button type="button" class="btn btn-hiranya-ghost hairline" id="clearAccountDataBtn">Clear Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="hiranya-footer">
+  <div class="footer-inner row g-5">
+    <div class="col-12 col-md-4">
+      <div class="footer-brand">HIRANYA</div>
+      <p class="body-md text-on-surface-var mb-3" style="max-width:320px;">Crafting timeless elegance. Our pieces are a synthesis of classical opulence and contemporary minimalism.</p>
+      <p class="body-md text-on-surface-var">© 2026 HIRANYA. Crafted for Eternity.</p>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="about.html#sustainability">Sustainability</a></li>
+        <li><a href="faq.html#hallmark">BIS Hallmarked</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md-2">
+      <h4>Assistance</h4>
+      <ul>
+        <li><a href="contact.html">Outlet
+          
+        </a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="jewellery-care.html">Jewellery Care</a></li>
+        <li><a href="privacy policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4">
+      <h4>Stay Connected</h4>
+      <p class="body-md text-on-surface-var mb-3">Join the HIRANYA world for exclusive reveals.</p>
+      <form class="newsletter-form d-flex flex-column gap-3" id="footerNewsletterForm">
+        <input type="email" required placeholder="Your Email Address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/products.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script src="js/account.js"></script>
+<script>
+  document.getElementById("footerNewsletterForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    hiranyaToast("Thank you — you're on the list", "mail");
+    e.target.reset();
+  });
+
+  // A couple of overview-tab bits that are easiest to wire inline rather
+  // than adding more one-off functions to account.js
+  document.addEventListener("DOMContentLoaded", () => {
+    const sync = () => {
+      const account = HiranyaStore.getAccount();
+      if (!account) return;
+      const orderCountEl = document.getElementById("overviewOrderCount");
+      if (orderCountEl) orderCountEl.textContent = HiranyaStore.getOrders().length;
+      const addrStatusEl = document.getElementById("overviewAddressStatus");
+      if (addrStatusEl) addrStatusEl.textContent = account.address ? `${account.address.city}, ${account.address.state}` : "Not added";
+      const wishCount2 = document.getElementById("accountWishlistCount2");
+      if (wishCount2) wishCount2.textContent = HiranyaStore.getWishlist().length;
+    };
+    sync();
+    document.getElementById("addressForm")?.addEventListener("submit", () => setTimeout(sync, 0));
+    document.getElementById("loginForm")?.addEventListener("submit", () => setTimeout(sync, 0));
+    document.getElementById("registerForm")?.addEventListener("submit", () => setTimeout(sync, 0));
+
+    document.getElementById("clearAccountDataBtn")?.addEventListener("click", () => {
+      HiranyaStore.setAccount(null);
+      HiranyaStore.setOrders([]);
+      hiranyaToast("Demo Data Cleared", "delete_sweep");
+      renderAccountPage();
+    });
+  });
+</script>
+</body>
+</html>
